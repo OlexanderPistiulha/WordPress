@@ -39,22 +39,15 @@
                     </a>
                 </div> <!-- end header__logo -->
 
-                <!-- Иконки в шапки ссылка + иконка соц. сети -->
-                <ul class="header__social">
-                    <li>
-                        <a href="https://www.facebook.com/"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                    </li>
-                    <li>
-                        <a href="https://twitter.com/?lang=uk"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                    </li>
-                    <li>
-                        <a href="https://www.instagram.com/?hl=uk"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                    </li>
-                    <li>
-                        <a href="https://www.pinterest.ru/"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
-                    </li>
-                </ul> <!-- end header__social -->
-
+                <?php wp_nav_menu( [
+                        'theme_location'  => 'menu-icons',                     
+                        'menu_class'      => 'header__social', 
+                        'menu_id'         => '',
+                        'echo'            => true,
+                       // 'fallback_cb'     => 'wp_page_menu',                      
+                       // 'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',                      
+                    ]  )?>   
+                    
                 <a class="header__search-trigger" href="#0"></a>
                 <div class="header__search">
                     <form role="search" method="get" class="header__search-form" action="#">
