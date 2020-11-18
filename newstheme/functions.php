@@ -4,14 +4,18 @@
 add_action('wp_enqueue_scripts', 'theme_add_scripts');
 add_action('after_setup_theme', 'theme_setup_theme');
 
+// фильтры для измениния стандартного поведения функции
+add_filter( 'document_title_separator', function(){
+	return ' | ';
+} );
+add_filter('excerpt_more', function($more) {
+	return '...';
+});
+
 // филтер для скритие admin_bar в wordpress
 // add_filter('show_admin_bar', '__return_false');
 
 function theme_add_scripts() {
-	// подключаем файл стилей темы
-    wp_enqueue_style( 'style-base', get_template_directory_uri() . '/assets/css/base.css', '1.0.0', 'all');
-    wp_enqueue_style( 'style-vendor', get_template_directory_uri() . '/assets/css/vendor.css', '1.0.0', 'all');
-    wp_enqueue_style( 'style-main', get_template_directory_uri() . '/assets/css/main.css', '1.0.0', 'all');
 
     // подключение скриптов
     wp_enqueue_script('jquery');
@@ -20,6 +24,10 @@ function theme_add_scripts() {
     wp_enqueue_script( 'script-plagins', get_template_directory_uri() . '/assets/js/plugins.js',  array('jquery'),  in_footer);
     wp_enqueue_script( 'script-main', get_template_directory_uri() . '/assets/js/main.js',  array('jquery'),  in_footer);
     
+    // подключаем файл стилей темы
+    wp_enqueue_style( 'style-base', get_template_directory_uri() . '/assets/css/base.css', '1.0.0', 'all');
+    wp_enqueue_style( 'style-vendor', get_template_directory_uri() . '/assets/css/vendor.css', '1.0.0', 'all');
+    wp_enqueue_style( 'style-main', get_template_directory_uri() . '/assets/css/main.css', '1.0.0', 'all');
     
 };
 

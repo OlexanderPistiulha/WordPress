@@ -1,102 +1,31 @@
-<?php
-/*
-Template Name: Category
-*/
-?>
+<?php get_header()?>
 
-<!-- Здесь html/php код шаблона -->
+    <!-- s-content
+    ================================================== -->
+    <section class="s-content s-content--narrow s-content--no-padding-bottom">
+      
+        <?php while( have_posts() ) : the_post();  ?>           
+            
+            <article class="row format-standard">
 
-<?php get_header(); ?>
-
-<section class="s-content">
-
-        <!-- <div class="row narrow">
-            <div class="col-full s-content__header" data-aos="fade-up">
-                <h1>Веб-дизайн</h1>
-
-                <p class="lead"> Тут зібрані статті в галузі веб-розробки і різновидів дизайну, які включають проектування користувацьких інтерфейсів призначених  для сайтів або веб-додатків</p>
-            </div>
-        </div> -->
-        
-        <div class="row masonry-wrap">
-            <div class="masonry">
-                <div class="grid-sizer"></div>
-
-
-
-                <ul>
-                    <?php
-                        global $post;
-                        $args = array(
-                            'post_type' => 'post',
-                            //'numberposts' => 5,                            
-                            'orderby'     => 'date',
-                            'order'       => 'DESC',
-                            'include'     => array(),
-                            'exclude'     => array(),
-                            'meta_key'    => '',
-                            'meta_value'  =>'',
-                            'post_type'   => 'post',
-                            'suppress_filters' => true, // подавление работы фильтров изменения SQL запроса
-                        );
-                        $myposts = get_posts( $args );
-                        foreach( $myposts as $post ){ setup_postdata($post);
-                            ?>
-                        <article class="masonry__brick entry format-standard">                        
-                            <div class="entry__thumb">
-                                <a href="<?php the_permalink(  );?>" class="entry__thumb-link">
-                                    <img src="<?php the_post_thumbnail_url( )?>" alt="">
-                                </a>
-                            </div>    
-                            <div class="entry__text">
-                                <div class="entry__header">                            
-                                    <div class="entry__date">
-                                        <a href="<?php the_permalink(  );?>"><?php the_time( 'j F Y')?></a>
-                                    </div>
-                                    <h1 class="entry__title"><a href="<?php the_permalink(  );?>"><?php the_title(); ?></a></h1>                            
-                                </div>
-                                <div class="entry__excerpt">
-                                    <p>   
-                                        <?php the_excerpt()?>                          
-                           
-                                    </p>
-                                </div>
-                                <div class="entry__meta">
-                                    <span class="entry__meta-links">
-                                        <p><?php the_category(' | '); ?></p>
-                                    </span>
-                                </div>
-                            </div>    
-                        </article> <!-- end article -->
-                            <?php
-                        }
-                        wp_reset_postdata();
-                    ?>
-                </ul>
-
-
-
-
-        <div class="row">
-            <div class="col-full">
-                <nav class="pgn">
-                    <ul>
-                        <li><a class="pgn__prev" href="#0">Prev</a></li>
-                        <li><a class="pgn__num current" href="#0">1</a></li>
-                        <li><span class="pgn__num ">2</span></li>
-                        <li><a class="pgn__num" href="#0">3</a></li>
-                        <li><a class="pgn__num" href="#0">4</a></li>
-                        <li><a class="pgn__num" href="#0">5</a></li>
-                        <li><span class="pgn__num dots">…</span></li>
-                        <li><a class="pgn__num" href="#0">8</a></li>
-                        <li><a class="pgn__next" href="#0">Next</a></li>
+                <div class="s-content__header col-full">
+                    <h1 class="s-content__header-title">
+                    <?php the_title();?>
+                    </h1>
+                    <ul class="s-content__header-meta">
+                        <li class="date"><?php the_time('j F Y');?></li>
                     </ul>
-                </nav>
-            </div>
-        </div>
+                </div> <!-- end s-content__header -->
+                <div>
+                     <?php the_content(); ?> 
+                </div>
+            </article>
+        <?php endwhile; ?>                   
+      
+        
 
     </section> <!-- s-content -->
-    
+
 
     <section class="s-extra">
         <div class="row top">
@@ -105,7 +34,7 @@ Template Name: Category
                 <div class="block-1-2 block-m-full popular__posts">
                     <article class="col-block popular__post">
                         <a href="#0" class="popular__thumb">
-                            <img src="images/thumbs/small/1.1.1.jpg" alt="">
+                            <img src="../images/thumbs/small/1.1.1.jpg" alt="">
                         </a>
                         <h5><a href="#0">5 способів створення успішної посадкової сторінки від Тодда Бейлі</a></h5>
                         <section class="popular__meta">
@@ -115,7 +44,7 @@ Template Name: Category
                     </article>
                     <article class="col-block popular__post">
                         <a href="#0" class="popular__thumb">
-                            <img src="images/thumbs/small/2.2.2.jpg" alt="">
+                            <img src="../images/thumbs/small/2.2.2.jpg" alt="">
                         </a>
                         <h5><a href="#0">Вільний простір у веб-дизайні. 9 сайтів для натхнення</a></h5>
                         <section class="popular__meta">
@@ -125,7 +54,7 @@ Template Name: Category
                     </article>
                     <article class="col-block popular__post">
                         <a href="#0" class="popular__thumb">
-                            <img src="images/thumbs/small/3.3.3.png" alt="">
+                            <img src="../images/thumbs/small/3.3.3.png" alt="">
                         </a>
                         <h5><a href="#0">100 кращих безкоштовних тем для WordPress</a></h5>
                         <section class="popular__meta">
@@ -135,7 +64,7 @@ Template Name: Category
                     </article>
                     <article class="col-block popular__post">
                         <a href="#0" class="popular__thumb">
-                            <img src="images/thumbs/small/4.4.4.png" alt="">
+                            <img src="../images/thumbs/small/4.4.4.png" alt="">
                         </a>
                         <h5><a href="#0">Чому вашу розсилку ніхто не читає: 15 причин</a></h5>
                         <section class="popular__meta">
@@ -145,7 +74,7 @@ Template Name: Category
                     </article>
                     <article class="col-block popular__post">
                         <a href="#0" class="popular__thumb">
-                            <img src="images/thumbs/small/5.5.5.jpg" alt="">
+                            <img src="../images/thumbs/small/5.5.5.jpg" alt="">
                         </a>
                         <h5><a href="#0">У чому секрет ефективності контекстної реклами?</a></h5>
                         <section class="popular__meta">
@@ -155,7 +84,7 @@ Template Name: Category
                     </article>
                     <article class="col-block popular__post">
                         <a href="#0" class="popular__thumb">
-                            <img src="images/thumbs/small/6.6.6.jpg" alt="">
+                            <img src="../images/thumbs/small/6.6.6.jpg" alt="">
                         </a>
                         <h5><a href="#0">Як створити сайт самостійно: керівництво по WordPress для малого бізнесу</a></h5>
                         <section class="popular__meta">
@@ -165,7 +94,7 @@ Template Name: Category
                     </article>
                     <article class="col-block popular__post">
                         <a href="#0" class="popular__thumb">
-                            <img src="images/thumbs/small/7.7.7.jpg" alt="">
+                            <img src="../images/thumbs/small/7.7.7.jpg" alt="">
                         </a>
                         <h5><a href="#0">Покази, кліки, ліди: за що вигідніше платити</a></h5>
                         <section class="popular__meta">
@@ -202,4 +131,5 @@ Template Name: Category
         </div> <!-- end row -->    
     </section> 
 
-<?php get_footer(); ?>
+
+ <? get_footer( )?>
