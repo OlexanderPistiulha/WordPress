@@ -103,77 +103,33 @@ Template Name: Category
             <div class="col-eight md-six tab-full popular">
                 <h3 style="font-family:librebaskerville-bold, serif; font-weight: 700;">Популярні статті :</h3>
                 <div class="block-1-2 block-m-full popular__posts">
-                    <article class="col-block popular__post">
-                        <a href="#0" class="popular__thumb">
-                            <img src="images/thumbs/small/1.1.1.jpg" alt="">
-                        </a>
-                        <h5><a href="#0">5 способів створення успішної посадкової сторінки від Тодда Бейлі</a></h5>
-                        <section class="popular__meta">
-                                <!-- <span class="popular__author"><a href="#0"> Alexander</a></span>
-                            <span class="popular__date"><span>on</span> <time datetime="2017-12-19">Dec 19, 2017</time></span> -->
-                        </section>
-                    </article>
-                    <article class="col-block popular__post">
-                        <a href="#0" class="popular__thumb">
-                            <img src="images/thumbs/small/2.2.2.jpg" alt="">
-                        </a>
-                        <h5><a href="#0">Вільний простір у веб-дизайні. 9 сайтів для натхнення</a></h5>
-                        <section class="popular__meta">
-                                <!-- <span class="popular__author"><a href="#0"> Alexander</a></span>
-                            <span class="popular__date"><span>on</span> <time datetime="2017-12-19">Dec 19, 2017</time></span> -->
-                        </section>
-                    </article>
-                    <article class="col-block popular__post">
-                        <a href="#0" class="popular__thumb">
-                            <img src="images/thumbs/small/3.3.3.png" alt="">
-                        </a>
-                        <h5><a href="#0">100 кращих безкоштовних тем для WordPress</a></h5>
-                        <section class="popular__meta">
-                                <!-- <span class="popular__author"><a href="#0"> Alexander</a></span>
-                            <span class="popular__date"><span>on</span> <time datetime="2017-12-19">Dec 19, 2017</time></span> -->
-                        </section>
-                    </article>
-                    <article class="col-block popular__post">
-                        <a href="#0" class="popular__thumb">
-                            <img src="images/thumbs/small/4.4.4.png" alt="">
-                        </a>
-                        <h5><a href="#0">Чому вашу розсилку ніхто не читає: 15 причин</a></h5>
-                        <section class="popular__meta">
-                                <!-- <span class="popular__author"><a href="#0"> Alexander</a></span>
-                            <span class="popular__date"><span>on</span> <time datetime="2017-12-19">Dec 19, 2017</time></span> -->
-                        </section>
-                    </article>
-                    <article class="col-block popular__post">
-                        <a href="#0" class="popular__thumb">
-                            <img src="images/thumbs/small/5.5.5.jpg" alt="">
-                        </a>
-                        <h5><a href="#0">У чому секрет ефективності контекстної реклами?</a></h5>
-                        <section class="popular__meta">
-                                <!-- <span class="popular__author"><a href="#0"> Alexander</a></span>
-                            <span class="popular__date"><span>on</span> <time datetime="2017-12-19">Dec 19, 2017</time></span> -->
-                        </section>
-                    </article>
-                    <article class="col-block popular__post">
-                        <a href="#0" class="popular__thumb">
-                            <img src="images/thumbs/small/6.6.6.jpg" alt="">
-                        </a>
-                        <h5><a href="#0">Як створити сайт самостійно: керівництво по WordPress для малого бізнесу</a></h5>
-                        <section class="popular__meta">
-                                <!-- <span class="popular__author"><a href="#0"> Alexander</a></span>
-                            <span class="popular__date"><span>on</span> <time datetime="2017-12-19">Dec 19, 2017</time></span> -->
-                        </section>
-                    </article>
-                    <article class="col-block popular__post">
-                        <a href="#0" class="popular__thumb">
-                            <img src="images/thumbs/small/7.7.7.jpg" alt="">
-                        </a>
-                        <h5><a href="#0">Покази, кліки, ліди: за що вигідніше платити</a></h5>
-                        <section class="popular__meta">
-                                <!-- <span class="popular__author"><a href="#0"> Alexander</a></span>
-                            <span class="popular__date"><span>on</span> <time datetime="2017-12-19">Dec 19, 2017</time></span> -->
-                        </section>
-                    </article>
-                   
+
+                <?php
+                        global $post;
+                        $args = array(
+                            'post_type' => 'post',
+                            'numberposts' => 6,                            
+                            'orderby'     => 'rand',                           
+                            'post_type'   => 'post',
+                            'suppress_filters' => true, // подавление работы фильтров изменения SQL запроса
+                        );
+                        $myposts = get_posts( $args );
+                        foreach( $myposts as $post ){ setup_postdata($post);
+                            ?>
+                                <article class="col-block popular__post">
+                                    <a href="<?php the_permalink( );?>" class="popular__thumb">
+                                        <img src="<?php the_post_thumbnail_url();?>" alt="">
+                                    </a>
+                                    <h5><a href="<?php the_permalink( );?>"><?php the_title( );?></a></h5>
+                                    <section class="popular__meta">
+                                        <span class="popular__author"><p > <?php the_author();?></p></span>
+                                        <span class="popular__date"><span>on</span> <time><? the_time('j F Y');?></time></span>
+                                    </section>
+                                </article>
+                            <?php
+                        }
+                        wp_reset_postdata();
+                ?>                 
                     
                 </div> <!-- end popular_posts -->
             </div> <!-- end popular -->
