@@ -8,7 +8,7 @@ Template Name: Category
 
 <?php get_header(); ?>
 
-<section class="s-content">
+<section class="s-content">   
 
         <!-- <div class="row narrow">
             <div class="col-full s-content__header" data-aos="fade-up">
@@ -22,18 +22,17 @@ Template Name: Category
             <div class="masonry">
                 <div class="grid-sizer"></div>             
                     <?php
+                       // $query = new WP_Query( 'day = 17' );
                         global $post;
                         $args = array(
                             'post_type' => 'post',
-                            //'numberposts' => 5, 
-                            
-                                             
+                             //'numberposts' => 5,                                             
                             'orderby'     => 'date',
                             'order'       => 'DESC',
                             'include'     => array(),
                             'exclude'     => array(),
                             'meta_key'    => '',
-                            'meta_value'  =>'',
+                           // 'meta_value'  => '$query',
                             'post_type'   => 'post',
                             'suppress_filters' => true, // подавление работы фильтров изменения SQL запроса
                         );

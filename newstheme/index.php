@@ -128,27 +128,18 @@
                 </div> <!-- end popular_posts -->
             </div> <!-- end popular -->
             
+
             <div class="col-four md-six tab-full about">
-                <h3>Про нас :</h3>
-                <p>
-                    Ми віримо, що все можливо, варто тільки спробувати, і що стандартні методи не завжди працюють, а також ми впевнені, що робота з кваліфікованими людьми завжди виходить дуже плідною і цікавою.
-                    Якщо Ви хочете дізнатися щось нове про веб-розробку або вважаєте, що за допомогою Інтернету зможете вивести Ваш бізнес на новий, більш високий рівень, то даний ресурс допоможе Вам досягти вашої мети.
-                </p>
-                <ul class="about__social">
-                    <li>
-                        <a href="https://www.facebook.com/"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                    </li>
-                    <li>
-                        <a href="https://twitter.com/?lang=uk"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                    </li>
-                    <li>
-                        <a href="https://www.instagram.com/?hl=uk"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                    </li>
-                    <li>
-                        <a href="https://www.pinterest.ru/"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
-                    </li>
-                </ul> <!-- end header__social -->
-            </div> <!-- end about -->
+            <?php dynamic_sidebar('about_us')?>
+            <?php wp_nav_menu( [
+                        'theme_location'  => 'menu-icons',                     
+                        'menu_class'      => 'about__social', 
+                        'menu_id'         => '',
+                        'echo'            => true,                                       
+                    ]  )?>   
+            </div>         
+
+          
         </div> <!-- end row -->    
     </section> 
 

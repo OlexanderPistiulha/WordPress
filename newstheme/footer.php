@@ -9,35 +9,27 @@
                 
                 <div class="col-two md-four mob-full s-footer__sitelinks">                        
                     <h4>Посилання</h4>
-                    <ul class="s-footer__linklist">
-                        <li><a href="index.html">Головна</a></li>
-                        <li><a href="category-web-design.html">Веб-дизайн</a></li>
-                        <li><a href="category-web-development.html">Веб-розробка</a></li>
-                        <li><a href="category-seo.html">Пошукова оптимізація</a></li>                       
-                        <li><a href="about.html">Про нас</a></li>
-                        <li><a href="contact.html">Контакти</a></li>
-                    </ul>
+                    <?php wp_nav_menu( [
+                        'theme_location'  => 'menu-footer',                     
+                        'menu_class'      => 's-footer__linklist', 
+                        'menu_id'         => '',
+                        'echo'            => true,                                     
+                      ])?>                    
                 </div> <!-- end s-footer__sitelinks -->
-                <div class="col-two md-four mob-full s-footer__archives">                        
-                    <h4>Архів</h4>
-                    <ul class="s-footer__linklist">
-                        <li><a href="#0">Січень 2020</a></li>
-                        <li><a href="#0">Грудень 2019</a></li>
-                        <li><a href="#0">Листопат 2019</a></li>
-                        <li><a href="#0">Жовтень 2019</a></li>
-                        <li><a href="#0">Вересень 2019</a></li>
-                    </ul>
+
+                <div class="col-two md-four mob-full s-footer__archives">      
+                    <?php dynamic_sidebar( 'archives' )?>                 
                 </div> <!-- end s-footer__archives -->
+              
                 <div class="col-two md-four mob-full s-footer__social">                        
                     <h4>Соц. мережі</h4>
-                    <ul class="s-footer__linklist">
-                        <li><a href="https://www.facebook.com/">Facebook</a></li>
-                        <li><a href="https://www.instagram.com/?hl=uk">Instagram</a></li>
-                        <li><a href="https://twitter.com/?lang=uk">Twitter</a></li>
-                        <li><a href="https://www.pinterest.ru/">Pinterest</a></li>
-                        <li><a href="#0">Google+</a></li>
-                        <li><a href="#0">LinkedIn</a></li>
-                    </ul>
+                    <?php wp_nav_menu( [
+                        'theme_location'  => 'menu-network',                     
+                        'menu_class'      => 's-footer__linklist', 
+                        'menu_id'         => '',
+                        'echo'            => true,
+                                     
+                      ])?>                     
                 </div> <!-- end s-footer__social -->
                 <div class="col-five md-full end s-footer__subscribe">                        
                     <h4>Останні новини </h4>

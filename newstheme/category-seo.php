@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: Category
+Template Name: Category-seo
 */
 ?>
 
@@ -25,9 +25,8 @@ Template Name: Category
                         global $post;
                         $args = array(
                             'post_type' => 'post',
-                            //'numberposts' => 5, 
-                            
-                                             
+                            //'numberposts' => 5,  
+                            'category_name'    => 'seo',                                
                             'orderby'     => 'date',
                             'order'       => 'DESC',
                             'include'     => array(),
@@ -69,8 +68,7 @@ Template Name: Category
                             <?php
                         }
                         wp_reset_postdata();
-                    ?>
-           
+                    ?>        
 
 
 

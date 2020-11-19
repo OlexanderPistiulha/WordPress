@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: Category
+Template Name: Category-design
 */
 ?>
 
@@ -20,14 +20,13 @@ Template Name: Category
         
         <div class="row masonry-wrap">
             <div class="masonry">
-                <div class="grid-sizer"></div>             
+                <div class="grid-sizer"></div>
                     <?php
                         global $post;
                         $args = array(
                             'post_type' => 'post',
-                            //'numberposts' => 5, 
-                            
-                                             
+                            //'numberposts' => 5,  
+                            'category_name'    => 'design',                                
                             'orderby'     => 'date',
                             'order'       => 'DESC',
                             'include'     => array(),
@@ -69,8 +68,7 @@ Template Name: Category
                             <?php
                         }
                         wp_reset_postdata();
-                    ?>
-           
+                    ?>            
 
 
 
